@@ -1,0 +1,46 @@
+name: Django CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Django dependencies
+        working-directory: ./django_project
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Django tests
+        working-directory: ./django_project
+        run: |
+          python manage.py test
+
+      - name: Install Sentiment Service dependencies
+        working-directory: ./sentiment_service
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Express backend (syntax check only)
+        working-directory: ./backend-express
+        run: |
+          npm install
+          node -c server.js || echo "No syntax check available for Node, continuing..."
+
+      - name: Complete CI Job
+        run: echo "CI Pipeline completed successfully."

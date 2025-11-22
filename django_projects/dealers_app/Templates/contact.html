@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - Car Dealer App{% endblock %}
+
+{% block content %}
+<h1>Contact Us</h1>
+
+<p>If you have any questions, feel free to reach out using the information below:</p>
+
+<div class="info-box">
+    <h2>Support Email</h2>
+    <p>support@cardealerapp.com</p>
+</div>
+
+<div class="info-box">
+    <h2>Phone Number</h2>
+    <p>+1 (555) 123-4567</p>
+</div>
+
+<div class="info-box">
+    <h2>Office Address</h2>
+    <p>123 Auto Lane, Motor City, USA</p>
+</div>
+
+<div class="info-box">
+    <h2>Send Us a Message</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Your Name" class="input-box">
+        <input type="email" placeholder="Your Email" class="input-box">
+        <textarea placeholder="Your Message" class="textarea-box"></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</div>
+
+{% endblock %}

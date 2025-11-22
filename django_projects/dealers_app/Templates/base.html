@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealer App</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="home.html">CarDealer</a>
+        </div>
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <span>Welcome, {{ user.username }}</span>
+                    <div class="dropdown-content">
+                        <a href="dealer_detail.html">Dealer Details</a>
+                        <a href="logout.html">Logout</a>
+                    </div>
+                </div>
+            {% else %}
+                <a href="login.html" class="btn">Login</a>
+                <a href="signup.html" class="btn">Sign Up</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find Your Dream Car Today</h1>
+            <p>Explore the best cars from top dealers near you.</p>
+            <a href="dealer_detail.html" class="btn btn-primary">Browse Dealers</a>
+        </div>
+    </section>
+
+    <!-- Featured Cars Section -->
+    <section class="featured">
+        <h2>Featured Cars</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="sedan car img.jpg" alt="Car 1">
+                <h3>Car Model A</h3>
+                <p>Luxury sedan with advanced features.</p>
+                <a href="#" class="btn btn-secondary">View Details</a>
+            </div>
+            <div class="card">
+                <img src="SUV car image.jpg" alt="Car 2">
+                <h3>Car Model B</h3>
+                <p>Compact SUV perfect for city driving.</p>
+                <a href="#" class="btn btn-secondary">View Details</a>
+            </div>
+            <div class="card">
+                <img src="sedan car img.jpg" alt="Car 3">
+                <h3>Car Model C</h3>
+                <p>Sports car with powerful engine.</p>
+                <a href="#" class="btn btn-secondary">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Car Dealer App. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a> |
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+</body>
+</html>
+

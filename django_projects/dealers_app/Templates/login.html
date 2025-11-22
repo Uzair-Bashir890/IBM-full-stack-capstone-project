@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Car Dealer App{% endblock %}
+
+{% block content %}
+<h1>Login</h1>
+
+<div class="form-card">
+    <form method="post" action="">
+        {% csrf_token %}
+        
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" class="input-box" placeholder="Enter your username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="input-box" placeholder="Enter your password" required>
+
+        <button type="submit" class="btn">Login</button>
+
+        <p class="form-note">
+            Don’t have an account? 
+            <a href="{% url 'signup' %}">Sign up</a>
+        </p>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+[{
+"name": "Top Cars",
+"city": "Kansas City",
+"state": "KS",
+"address": "123 Main St",
+"full_name": "Top Cars LTD",
+"reviews": [
+{"name":"Alice","review":"Great service","sentiment":"positive"}
+]
+},
+{
+"name": "AutoWorld",
+"city": "Wichita",
+"state": "KS",
+"address": "45 Broadway",
+"full_name": "AutoWorld Inc",
+"reviews": []
+}]

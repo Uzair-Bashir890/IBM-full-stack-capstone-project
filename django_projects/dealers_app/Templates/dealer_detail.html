@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Dealer Details{% endblock %}
+
+{% block content %}
+
+<h1>{{ dealer.full_name }}</h1>
+
+<div class="form-card">
+    <p><strong>Dealer ID:</strong> {{ dealer.id }}</p>
+    <p><strong>City:</strong> {{ dealer.city }}</p>
+    <p><strong>State:</strong> {{ dealer.state }}</p>
+    <p><strong>ZIP:</strong> {{ dealer.zip }}</p>
+    <p><strong>Address:</strong> {{ dealer.address }}</p>
+</div>
+
+<h2 style="margin-top: 30px;">Customer Reviews</h2>
+
+<div class="reviews-section">
+    {% if reviews %}
+        {% for r in reviews %}
+            <div class="review-card">
+                <p class="review-text">“{{ r.review }}”</p>
+                <p class="review-meta">
+                    <strong>Sentiment:</strong> {{ r.sentiment|title }} <br>
+                    <strong>Date:</strong> {{ r.review_date }}
+                </p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No reviews available for this dealer yet.</p>
+    {% endif %}
+</div>
+
+{% if user.is_authenticated %}
+    <div style="text-align: center; margin-top: 25px;">
+        <a href="{% url 'add_review' dealer.id %}" class="btn">Post Review</a>
+    </div>
+{% else %}
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'login' %}">Login</a> to post a review.
+    </p>
+{% endif %}
+
+{% endblock %}

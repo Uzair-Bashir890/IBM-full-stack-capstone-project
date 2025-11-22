@@ -1,0 +1,109 @@
+/* Dealer Listing Page Styling */
+
+/* Page Title */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Horizontal line styling */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
+}
+
+/* Dealer Card Container */
+.dealer-card {
+    background: linear-gradient(135deg, #ffffff, #f0f4f8);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.dealer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Dealer Name */
+.dealer-card h2 {
+    color: #1abc9c;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+/* Dealer Info */
+.dealer-card p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Dealer Details Link */
+.dealer-card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #1abc9c, #16a085);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dealer-card a:hover {
+    background: linear-gradient(90deg, #16a085, #1abc9c);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .dealer-card {
+        max-width: 90%;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .dealer-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .dealer-card h2 {
+        font-size: 24px;
+    }
+
+    .dealer-card p {
+        font-size: 14px;
+    }
+
+    .dealer-card a {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}

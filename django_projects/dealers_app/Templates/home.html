@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Car Dealer App{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="style2.css">
+{% endblock %}
+
+{% block content %}
+<h1>Car Dealers</h1>
+<p>Browse available car dealers. Click any dealer to view details and reviews.</p>
+
+<hr>
+
+{% if dealers %}
+    {% for dealer in dealers %}
+        <div class="dealer-card">
+            <h2>{{ dealer.full_name }}</h2>
+            <p><strong>City:</strong> {{ dealer.city }}</p>
+            <p><strong>State:</strong> {{ dealer.state }}</p>
+            <p><strong>Address:</strong> {{ dealer.address }}</p>
+            <p><strong>Zip:</strong> {{ dealer.zip }}</p>
+
+            <a href="/dealer/{{ dealer.id }}">View Dealer Details →</a>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No dealers available.</p>
+{% endif %}
+{% endblock %}
+
+
+
